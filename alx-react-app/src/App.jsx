@@ -7,7 +7,7 @@ import WelcomeMessage from './components/WelcomeMessage';
 function App() {
     return (
         <div>
-            <WelcomeMessage/> {/* Include the WelcomeMessage component */}
+            <WelcomeMessage/> {/* This is the WelcomeMessage component */}
             <HelloWorld />
             <UserProfileCard 
                 name="John Doe"
