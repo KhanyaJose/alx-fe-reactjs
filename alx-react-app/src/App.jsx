@@ -2,10 +2,12 @@
 import HelloWorld from './HelloWorld'; // Import HelloWorld component
 import UserProfileCard from './UserProfileCard'; // Import UserProfileCard component
 import Counter from './Counter'; // Import Counter component
+import WelcomeMessage from './components/WelcomeMessage';
 
 function App() {
     return (
         <div>
+            <WelcomeMessage/> {/* Include the WelcomeMessage component */}
             <HelloWorld />
             <UserProfileCard 
                 name="John Doe"
