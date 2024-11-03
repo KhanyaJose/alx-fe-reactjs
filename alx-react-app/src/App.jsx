@@ -1,11 +1,11 @@
 // src/App.jsx
+import Header from './Header'; // Import Header component
+import MainContent from './MainContent'; // Import MainContent component
+import Footer from './Footer'; // Import Footer component
 import HelloWorld from './HelloWorld'; // Import HelloWorld component
 import UserProfileCard from './UserProfileCard'; // Import UserProfileCard component
 import Counter from './Counter'; // Import Counter component
 import WelcomeMessage from './components/WelcomeMessage';
-import Header from './Header'; // Import Header component
-import MainContent from './MainContent'; // Import MainContent component
-import Footer from './Footer'; // Import Footer component
 
 function App() {
     return (
