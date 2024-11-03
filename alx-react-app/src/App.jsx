@@ -13,6 +13,7 @@ function App() {
             <Header /> {/* Include Header */}
             <MainContent /> {/* Include Main Content */}
             <Footer /> {/* Include Footer */}
+            
             <WelcomeMessage /> {/* This is the WelcomeMessage component */}
             <HelloWorld />
             <UserProfileCard 
