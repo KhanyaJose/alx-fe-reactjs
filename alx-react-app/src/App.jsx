@@ -1,7 +1,7 @@
 // src/App.jsx
-import Header from './Header'; // Import Header component
-import MainContent from './MainContent'; // Import MainContent component
-import Footer from './Footer'; // Import Footer component
+import Header from './components/Header'; // Import Header component
+import MainContent from './components/MainContent'; // Import MainContent component
+import Footer from '.components/Footer'; // Import Footer component
 import HelloWorld from './HelloWorld'; // Import HelloWorld component
 import UserProfileCard from './UserProfileCard'; // Import UserProfileCard component
 import Counter from './Counter'; // Import Counter component
@@ -13,7 +13,7 @@ function App() {
             <Header /> {/* Include Header */}
             <MainContent /> {/* Include Main Content */}
             <Footer /> {/* Include Footer */}
-            
+
             <WelcomeMessage /> {/* This is the WelcomeMessage component */}
             <HelloWorld />
             <UserProfileCard 
