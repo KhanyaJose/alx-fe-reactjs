@@ -6,6 +6,7 @@ import HelloWorld from './HelloWorld'; // Import HelloWorld component
 import UserProfileCard from './UserProfileCard'; // Import UserProfileCard component
 import Counter from './Counter'; // Import Counter component
 import WelcomeMessage from './components/WelcomeMessage';
+import UserProfile from './components/UserProfile'; // Import UserProfile component
 
 function App() {
     return (
@@ -22,6 +23,12 @@ function App() {
                 profilePicture="https://via.placeholder.com/100"
             />
             <Counter />
+            {/* Using UserProfile component with props */}
+            <UserProfile 
+                name="Alice" 
+                age="25" 
+                bio="Loves hiking and photography" 
+            />
         </div>
     );
 }
