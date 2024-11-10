@@ -4,15 +4,16 @@ import MainContent from './components/MainContent'; // Import MainContent compon
 import Footer from './components/Footer'; // Import Footer component
 import HelloWorld from './HelloWorld'; // Import HelloWorld component
 import UserProfileCard from './UserProfileCard'; // Import UserProfileCard component
-import Counter from './Counter'; // Import Counter component
 import WelcomeMessage from './components/WelcomeMessage';
 import UserProfile from './components/UserProfile'; // Import UserProfile component
+import Counter from './components/Counter'; // Import the Counter component
 
 function App() {
     return (
         <div>
             <Header /> {/* Include Header */}
             <MainContent /> {/* Include Main Content */}
+            <Counter /> {/*Adding the Counter component hewe*/}
             <Footer /> {/* Include Footer */}
 
             <WelcomeMessage /> {/* This is the WelcomeMessage component */}
@@ -22,7 +23,7 @@ function App() {
                 email="john.doe@example.com"
                 profilePicture="https://via.placeholder.com/100"
             />
-            <Counter />
+            
             {/* Using UserProfile component with props */}
             <UserProfile 
                 name="Alice" 
