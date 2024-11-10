@@ -15,6 +15,8 @@ function App() {
     const userData = { name: "Jane Doe", email: "jane.doe@example.com" };
 
     return (
+        <UserContext.Provider value={userData}>  {/* Wrap your components with UserContext.Provider */}
+
         <div>
             <Header /> {/* Include Header */}
             <MainContent /> {/* Include Main Content */}
@@ -35,6 +37,7 @@ function App() {
                 bio="Loves hiking and photography" 
             />
         </div>
+        </UserContext.Provider>
     );
 }
 
