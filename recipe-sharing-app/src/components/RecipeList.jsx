@@ -1,20 +1,25 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+// src/components/RecipeList.jsx
+import React, { useEffect } from 'react';
 import { useRecipeStore } from '../recipeStore';
+import RecipeCard from './RecipeCard'; 
 
 const RecipeList = () => {
-  const recipes = useRecipeStore((state) => state.recipes);
+  const recipes = useRecipeStore(state => state.recipes); 
+  const filteredRecipes = useRecipeStore(state => state.filteredRecipes); 
+  const filterRecipes = useRecipeStore(state => state.filterRecipes); 
+
+  useEffect(() => {
+    filterRecipes(); 
+  }, [recipes]);
 
   return (
     <div>
-      <h2>Recipes</h2>
-      {recipes.map((recipe) => (
-        <div key={recipe.id}>
-          <h3>{recipe.title}</h3>
-          <p>{recipe.description}</p>
-          <Link to={`/recipe/${recipe.id}`}>View Details</Link>
-        </div>
-      ))}
+      <h1>Recipe List</h1>
+      <div className="recipe-list">
+        {filteredRecipes.map(recipe => (
+          <RecipeCard key={recipe.id} recipe={recipe} />
+        ))}
+      </div>
     </div>
   );
 };
