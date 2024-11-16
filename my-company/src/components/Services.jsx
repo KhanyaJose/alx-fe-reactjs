@@ -9,6 +9,6 @@ function Services() {
         </ul>
       </div>
     );
-  }
+  } 
   export default Services;
   

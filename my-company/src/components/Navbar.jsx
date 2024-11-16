@@ -9,6 +9,6 @@ function Navbar() {
       <Link to="/contact" style={{ margin: '0 15px' }}>Contact</Link>
     </nav>
   );
-}
+} 
 
 export default Navbar;
