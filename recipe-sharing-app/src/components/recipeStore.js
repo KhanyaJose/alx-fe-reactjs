@@ -13,7 +13,19 @@ const useRecipeStore = create((set) => ({
     set(() => ({
       recipes: newRecipes,
     })),
-
+  
+  updateRecipe: (recipeId, updatedData) =>
+      set((state) => ({
+        recipes: state.recipes.map((recipe) =>
+          recipe.id === recipeId ? { ...recipe, ...updatedData } : recipe
+        ),
+      })),
+  
+  deleteRecipe: (recipeId) =>
+        set((state) => ({
+          recipes: state.recipes.filter((recipe) => recipe.id !== recipeId),
+        })),
+        
   addFavorite: (recipeId) => set((state) => ({ favorites: [...state.favorites, recipeId] })),
   
   removeFavorite: (recipeId) =>

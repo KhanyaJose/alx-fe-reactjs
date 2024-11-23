@@ -1,8 +1,10 @@
+import React from "react";
 import { useRecipeStore } from './recipeStore';
 import { useParams, Link } from 'react-router-dom';
 
 const RecipeDetails = () => {
   const { recipeId } = useParams();
+  const navigate = useNavigate();
   const recipe = useRecipeStore((state) =>
     state.recipes.find((recipe) => recipe.id === parseInt(recipeId))
   );

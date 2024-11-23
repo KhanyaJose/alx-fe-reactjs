@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { useRecipeStore } from './recipeStore';
 import { useParams, useNavigate } from 'react-router-dom';
 
@@ -26,17 +26,23 @@ const EditRecipeForm = () => {
 
   return (
     <form onSubmit={handleSubmit}>
+      <div>
       <input
+        id="title"
         type="text"
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder="Title"
       />
+      </div>
+      <div>
+      <label htmlFor="description">Description:</label>
       <textarea
         value={description}
         onChange={(e) => setDescription(e.target.value)}
         placeholder="Description"
       />
+      </div>
       <button type="submit">Save Changes</button>
     </form>
   );
