@@ -3,6 +3,8 @@ import { useAuth } from './hooks/useAuth';
 import ProtectedRoute from './components/ProtectedRoute';
 import Profile from './components/Profile';
 import Login from './components/Login';
+import BlogPost from './components/BlogPost'; // Import your BlogPost component
+import Home from './components/Home';
 
 function App() {
   const { isAuthenticated } = useAuth();
@@ -12,7 +14,6 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
-        {/* Protected Route for /profile */}
         <Route
           path="/profile"
           element={
@@ -21,6 +22,7 @@ function App() {
             </ProtectedRoute>
           }
         />
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </Router>
   );
