@@ -1,14 +1,26 @@
-// src/App.jsx
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Home from './components/Home';
-import BlogPost from './components/BlogPost'; // Import the BlogPost component
+import { useAuth } from './hooks/useAuth';
+import ProtectedRoute from './components/ProtectedRoute';
+import Profile from './components/Profile';
+import Login from './components/Login';
 
 function App() {
+  const { isAuthenticated } = useAuth();
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/blog/:id" element={<BlogPost />} /> {/* Dynamic route for blog posts */}
+        <Route path="/login" element={<Login />} />
+        {/* Protected Route for /profile */}
+        <Route
+          path="/profile"
+          element={
+            <ProtectedRoute isAuthenticated={isAuthenticated}>
+              <Profile />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Router>
   );
