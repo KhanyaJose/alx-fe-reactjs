@@ -26,15 +26,7 @@ const RegistrationForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validate()) {
-      console.log('Form submitted:', formData);
-
-      // Clear form fields
-      setFormData({
-        username: '',
-        email: '',
-        password: '',
-      });
-
+      console.log('Form Data:', formData);
       alert('Registration successful!');
     }
   };
@@ -42,7 +34,7 @@ const RegistrationForm = () => {
   return (
     <form onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="username">Username:</label>
+        <label>Username:</label>
         <input
           type="text"
           name="username"
