@@ -1,7 +1,7 @@
 // src/__tests__/TodoList.test.js
-
+import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import TodoList from '../TodoList'; // Adjust the path as needed
+import TodoList from '../components/TodoList'; // Adjust the path as needed
 
 // Sample data for testing
 const initialTodos = [
