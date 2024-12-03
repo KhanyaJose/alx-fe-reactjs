@@ -1,48 +1,49 @@
-import { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '/vite.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import reactLogo from './assets/react.svg'
+import viteLogo from '/vite.svg'
+import './App.css'
 import HomePage from './components/HomePage';
 
-function App() {
-  const [count, setCount] = useState(0);
+const HomePage = () => {
+  const [recipes, setRecipes] = useState([]);
+
+  // Fetch data from data.json
+  useEffect(() => {
+    fetch("/data.json")
+      .then((response) => response.json())
+      .then((data) => setRecipes(data))
+      .catch((error) => console.error("Error loading recipes:", error));
+  }, []);
 
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center text-gray-900">
-      <HomePage />
-      <div className="flex space-x-8">
-        <a href="https://vite.dev" target="_blank" rel="noopener noreferrer">
-          <img
-            src={viteLogo}
-            className="h-20 hover:scale-110 transition-transform"
-            alt="Vite logo"
-          />
-        </a>
-        <a href="https://react.dev" target="_blank" rel="noopener noreferrer">
-          <img
-            src={reactLogo}
-            className="h-20 hover:scale-110 transition-transform"
-            alt="React logo"
-          />
-        </a>
+    <div className="min-h-screen bg-white flex flex-col items-center px-4 py-8">
+      <h1 className="text-4xl font-bold text-gray-800 mb-6">Recipe Sharing Platform</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 w-full max-w-5xl">
+        {recipes.map((recipe) => (
+          <div
+            key={recipe.id}
+            className="bg-gray-100 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300"
+          >
+            <img
+              src={recipe.image}
+              alt={recipe.title}
+              className="w-full h-48 object-cover"
+            />
+            <div className="p-4">
+              <h2 className="text-2xl font-semibold text-gray-700">{recipe.title}</h2>
+              <p className="text-gray-600 mt-2">{recipe.summary}</p>
+              <a
+                href={`/recipes/${recipe.id}`}
+                className="text-blue-500 hover:underline mt-4 block"
+              >
+                View Recipe
+              </a>
+            </div>
+          </div>
+        ))}
       </div>
-      <h1 className="text-4xl font-bold mt-8">Vite + React</h1>
-      <div className="card mt-6">
-        <button
-          onClick={() => setCount((count) => count + 1)}
-          className="px-6 py-2 bg-gray-200 text-gray-900 rounded-lg shadow-md hover:bg-gray-300 transition-colors"
-        >
-          Count is {count}
-        </button>
-        <p className="mt-4">
-          Edit <code className="bg-gray-100 px-2 py-1 rounded">src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs mt-6 text-lg">
-        Click on the Vite and React logos to learn more
-      </p>
     </div>
   );
-}
+};
 
-export default App;
+export default HomePage;
