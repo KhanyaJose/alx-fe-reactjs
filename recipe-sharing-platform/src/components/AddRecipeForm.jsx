@@ -46,56 +46,64 @@ function AddRecipeForm() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col items-center p-6 bg-gray-100">
-      <h1 className="text-3xl font-bold mb-6">Add a New Recipe</h1>
+    <div className="min-h-screen flex flex-col items-center p-4 sm:p-6 bg-gray-100">
+      <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+        Add a New Recipe
+      </h1>
       <form
         onSubmit={handleSubmit}
-        className="bg-white rounded-lg shadow-lg p-6 w-full max-w-2xl"
+        className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8 w-full max-w-lg"
       >
         {/* Title Input */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Recipe Title</label>
+          <label className="block text-sm sm:text-base md:text-lg text-gray-700 font-semibold mb-2">
+            Recipe Title
+          </label>
           <input
             type="text"
             value={formData.title}
             onChange={(e) => handleChange('title', e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded"
+            className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-400"
             placeholder="Enter recipe title"
           />
-          {errors.title && <p className="text-red-500 text-sm">{errors.title}</p>}
+          {errors.title && <p className="text-red-500 text-sm mt-1">{errors.title}</p>}
         </div>
 
         {/* Ingredients Input */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Ingredients</label>
+          <label className="block text-sm sm:text-base md:text-lg text-gray-700 font-semibold mb-2">
+            Ingredients
+          </label>
           <textarea
             value={formData.ingredients}
             onChange={(e) => handleChange('ingredients', e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded"
+            className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-400"
             placeholder="Enter ingredients, separated by commas"
             rows="4"
           ></textarea>
-          {errors.ingredients && <p className="text-red-500 text-sm">{errors.ingredients}</p>}
+          {errors.ingredients && <p className="text-red-500 text-sm mt-1">{errors.ingredients}</p>}
         </div>
 
         {/* Preparation Steps Input */}
         <div className="mb-4">
-          <label className="block text-gray-700 font-semibold mb-2">Preparation Steps</label>
+          <label className="block text-sm sm:text-base md:text-lg text-gray-700 font-semibold mb-2">
+            Preparation Steps
+          </label>
           <textarea
             value={formData.steps}
             onChange={(e) => handleChange('steps', e.target.value)}
-            className="w-full p-2 border border-gray-300 rounded"
+            className="w-full p-2 border border-gray-300 rounded focus:ring-2 focus:ring-blue-400"
             placeholder="Enter preparation steps"
             rows="6"
           ></textarea>
-          {errors.steps && <p className="text-red-500 text-sm">{errors.steps}</p>}
+          {errors.steps && <p className="text-red-500 text-sm mt-1">{errors.steps}</p>}
         </div>
 
         {/* Submit Button */}
         <div className="text-right">
           <button
             type="submit"
-            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+            className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 transition-all md:text-lg"
           >
             Submit Recipe
           </button>
