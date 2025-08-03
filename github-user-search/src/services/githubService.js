@@ -28,7 +28,6 @@ export const fetchAdvancedUserData = async (username, location, minRepos, page =
   const response = await axios.get('https://api.github.com/search/users', { params });
   const users = response.data.items;
 
-  // Fetch extra details (location, repos) for each user individually because search API doesn't return them
   const detailedUsers = await Promise.all(
     users.map(async (user) => {
       const res = await axios.get(`https://api.github.com/users/${user.login}`);
