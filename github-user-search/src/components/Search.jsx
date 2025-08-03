@@ -17,7 +17,7 @@ function Search() {
       const data = await fetchUserData(username);
       setUser(data);
     } catch (err) {
-      setError('Looks like we can’t find the user');
+      setError("Looks like we cant find the user");
     } finally {
       setLoading(false);
     }
@@ -33,7 +33,10 @@ function Search() {
           onChange={(e) => setUsername(e.target.value)}
           className="border p-2 rounded"
         />
-        <button type="submit" className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+        <button
+          type="submit"
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+        >
           Search
         </button>
       </form>
@@ -43,7 +46,11 @@ function Search() {
 
       {user && (
         <div className="mt-4 flex flex-col items-center">
-          <img src={user.avatar_url} alt={user.login} className="w-24 h-24 rounded-full" />
+          <img
+            src={user.avatar_url}
+            alt={user.login}
+            className="w-24 h-24 rounded-full"
+          />
           <h2 className="text-xl font-semibold mt-2">{user.name || user.login}</h2>
           <a
             href={user.html_url}
