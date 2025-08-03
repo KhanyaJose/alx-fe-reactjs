@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
-import { fetchAdvancedUserData } from '../services/githubApi';
+import { fetchUserData } from '../services/githubService';
 
 function Search() {
   const [username, setUsername] = useState('');
   const [location, setLocation] = useState('');
   const [minRepos, setMinRepos] = useState('');
-  const [users, setUsers] = useState([]);  // multiple users now
+  const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
-  const [page, setPage] = useState(1); // for pagination
+  const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(false);
 
   const handleSubmit = async (e) => {
@@ -19,7 +19,7 @@ function Search() {
     setPage(1);
 
     try {
-      const { items, total_count } = await fetchAdvancedUserData(username, location, minRepos, 1);
+      const { items, total_count } = await fetchUserData(username, location, minRepos, 1);
       setUsers(items);
       setHasMore(items.length < total_count);
     } catch {
@@ -33,7 +33,7 @@ function Search() {
     const nextPage = page + 1;
     setLoading(true);
     try {
-      const { items } = await fetchAdvancedUserData(username, location, minRepos, nextPage);
+      const { items } = await fetchUserData(username, location, minRepos, nextPage);
       setUsers(prev => [...prev, ...items]);
       setPage(nextPage);
       setHasMore(items.length > 0);
