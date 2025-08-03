@@ -19,13 +19,10 @@ export const fetchAdvancedUserData = async (username, location, minRepos, page =
     throw new Error('At least one search parameter is required');
   }
 
-  const params = {
-    q: query,
-    page,
-    per_page: 10,
-  };
+  const encodedQuery = encodeURIComponent(query);
+  const url = `https://api.github.com/search/users?q=${encodedQuery}&page=${page}&per_page=10`;
 
-  const response = await axios.get('https://api.github.com/search/users', { params });
+  const response = await axios.get(url);
   const users = response.data.items;
 
   const detailedUsers = await Promise.all(
